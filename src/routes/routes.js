@@ -14,9 +14,14 @@ router.get(
     (req, res) => res.render("home", {user:req.session.user})
 );
 
+router.get("/reset-password", (req, res) => res.render("reset", {errorMsg:null}))
+router.get("/forgot-password", (req, res) => res.render("forgot", {errorMsg:null, successMsg:null}))
+
 router.get('/signout', userController.signout);
-router.post('/signup', dataValidation,userController.signup);
+router.post('/signup', dataValidation('signup'), userController.signup);
 router.post('/signin', userController.signin);
+router.post('/forgot', userController.forgotPassword)
+router.post('/reset-password', dataValidation('reset'), userController.resetPassword);
 
 export default router
 

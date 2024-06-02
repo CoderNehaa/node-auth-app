@@ -42,6 +42,10 @@ export class UserModel {
                 }
             });
         });
+    }
 
+    static async updateUserPassword(email, hashedPassword) {
+        const db = await connectDB();
+        await db.collection('users').updateOne({ email: email }, { $set: { password: hashedPassword } });
     }
 }

@@ -1,0 +1,28 @@
+<div class="d-flex flex-column align-items-center justify-content-center" style="margin: 24px auto">
+    <h1>NodeJS Authentication</h1>
+
+    <span class="my-4">Forgot your password? Enter email to get new password</span>
+    <form 
+        class="w-25 d-flex flex-column align-items-center justify-content-center" 
+        method="post" action="/forgot">
+        <input type="email" name="email" id="email" class="form-control" placeholder="Enter email" />
+    
+        <% if(errorMsg){ %>
+            <div class="text-danger fw-bold text-capitalize">
+                <%= errorMsg %>
+            </div>
+        <% } %>
+    
+        <% if(successMsg){ %>
+            <div class="text-primary fw-bold text-capitalize text-nowrap" style="font-size: small;">
+                <%= successMsg %>
+            </div>
+        <% } %>
+    
+        <button class="btn btn-info my-4">Get Email</button>
+    </form>
+
+    <a href="/signin">Go to Signin</a>
+
+
+</div>

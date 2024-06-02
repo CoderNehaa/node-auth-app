@@ -1,7 +1,6 @@
 import { check, validationResult } from 'express-validator';
 
-export const dataValidation = [
-    check('email').isEmail().withMessage('Enter a valid email'),
+export const dataValidation = (view) => [
     check('password')
         .isLength({ min: 6 }).withMessage('Password must be at least 6 characters long')
         .matches(/\d/).withMessage('Password must contain a number')
@@ -11,7 +10,7 @@ export const dataValidation = [
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             const errorMsgs = errors.array().map(err => err.msg).join(', ');
-            return res.render('signup', { errorMsg: errorMsgs });
+            return res.render(view, { errorMsg: errorMsgs });
         }
         next();
     }

@@ -1,0 +1,36 @@
+<div
+  class="d-flex flex-column align-items-center justify-content-center"
+  style="margin: 24px auto"
+>
+  <h1 class="mb-4">NodeJS Authentication</h1>
+  <p>
+    To reset password, enter new password with minimum length of 6, containing
+    one number and one special character
+  </p>
+  <form
+    method="post"
+    action="/reset-password"
+    class="w-50 d-flex flex-column align-items-center justify-content-center"
+  > 
+    <input
+      type="password"
+      id="password"
+      name="password"
+      class="form-control my-2"
+      placeholder="Enter New Password"
+    />
+    <input
+      type="password"
+      id="confirmPassword"
+      name="confirmPassword"
+      class="form-control my-2"
+      placeholder="Confirm New Password"
+    />
+
+    <% if(errorMsg){ %>
+    <div class="text-danger fw-bold text-capitalize"><%= errorMsg %></div>
+    <% } %>
+
+    <button class="btn btn-info">Submit</button>
+  </form>
+</div>
