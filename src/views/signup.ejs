@@ -2,9 +2,10 @@
   class="d-flex flex-column align-items-center justify-content-center"
   style="margin: 24px auto"
 >
-  <h2>Create your account</h2>
-
-  <form class="w-50" method="post" action="/signup">
+<h2 class="mb-4">NodeJS Authentication</h2>
+  <h4>Create your account</h4>
+  
+  <form class="w-50 border p-4 m-2" method="post" action="/signup">
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
       <input type="text" class="form-control" id="name" name="name" required />
@@ -36,5 +37,5 @@
 
     <button type="submit" class="btn btn-primary">Sign Up</button>
   </form>
-  <a href="/signin">Already have an account? Sign in to your account</a>
+  <a href="/signin" style="text-decoration: none; color: maroon;" class="fw-semibold">Already have an account? Sign in to your account</a>
 </div>
