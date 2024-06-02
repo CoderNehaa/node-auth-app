@@ -5,3 +5,4 @@ export const ensureAuthenticated = (req, res, next) => {
         res.redirect('/signin');
     }
 };
+

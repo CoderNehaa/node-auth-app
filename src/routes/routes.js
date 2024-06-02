@@ -1,6 +1,6 @@
 import express from "express";
 import { UserController } from "../controllers/user.controller.js";
-import {ensureAuthenticated} from "../middlewares/ensureAuthenticated.js";
+import { ensureAuthenticated } from "../middlewares/ensureAuthenticated.js";
 import { dataValidation } from "../middlewares/validation.middleware.js";
 
 const router = express.Router();
@@ -14,7 +14,7 @@ router.get(
     (req, res) => res.render("home", {user:req.session.user})
 );
 
-router.get("/reset-password", (req, res) => res.render("reset", {errorMsg:null}))
+router.get("/reset-password", ensureAuthenticated, (req, res) => res.render("reset", {errorMsg:null}))
 router.get("/forgot-password", (req, res) => res.render("forgot", {errorMsg:null, successMsg:null}))
 
 router.get('/signout', userController.signout);
